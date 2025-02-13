@@ -37,7 +37,7 @@ public class splashactivity extends AppCompatActivity {
 
         TextView textdot_anim=findViewById(R.id.textdot_anim);
 
-        Animation translate= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.splashscreendotanim);
+            Animation translate= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.splashscreendotanim);
         textdot_anim.startAnimation(translate);
 
 

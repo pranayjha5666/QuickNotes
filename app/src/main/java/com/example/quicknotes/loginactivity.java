@@ -41,13 +41,14 @@ public class loginactivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email=email_edittext.getText().toString();
                 String password=password_edittext.getText().toString();
+//                String password=password_edittext.getText().toString();
 
                 boolean isValidated=validateData(email,password);
 
                 if(!isValidated){
                     return;
                 }
-                loginaccountInFirebase(email,password);
+                loginaccountInFirebase(email, String.valueOf(password));
             }
         });
 
@@ -81,7 +82,9 @@ public class loginactivity extends AppCompatActivity {
                     }
                     else {
                         Toast.makeText(loginactivity.this, "Email Not Veirified !!!, Please Verify it", Toast.LENGTH_SHORT).show();
+                        firebaseAuth.getCurrentUser().sendEmailVerification();
                         firebaseAuth.signOut();
+
                     }
                 }
                 else{
